@@ -1,3 +1,5 @@
+language: generic
+
 sudo: required
 
 services:
@@ -5,3 +7,6 @@ services:
 
 before_install:
   - docker build -f Dockerfile.dev -t bartekbulat/docker-react .
+
+script:
+  - docker run -e CI=true npm run test
